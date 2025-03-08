@@ -2,6 +2,7 @@
 import { Input } from "../ui/input";
 import { useDebouncedCallback } from "use-debounce";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+// import { Button } from "../ui/button";
 
 interface IMedicines {
   _id: string;
@@ -59,8 +60,8 @@ export default function MedicineSearch({
       <div className="flex flex-col gap-2">
         {medicines &&
           medicines.map((medicine) => {
-            return <div key={medicine._id} className="px-3 py-1 border rounded-md">
-              {medicine.name}
+            return <div key={medicine._id} className="px-3 py-1 border rounded-md flex justify-between gap-2">
+              <p>{medicine.name}</p>
             </div>;
           })}
       </div>
