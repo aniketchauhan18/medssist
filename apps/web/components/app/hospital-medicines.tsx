@@ -1,4 +1,6 @@
+"use client";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import { Button } from "../ui/button";
 
 interface IMedicines {
   _id: string;
@@ -17,7 +19,7 @@ interface IMedicines {
   __v: number;
 }
 
-export default async function HospitalMedicines({
+export default function HospitalMedicines({
   medicines,
 }: {
   medicines: IMedicines[];
@@ -37,6 +39,9 @@ export default async function HospitalMedicines({
             <div>Expiry Date: {medicine.expiryDate.toDateString()}</div>
             <div>Quantity: {medicine.quantity}</div>
             <div>Price Per Unit: ₹{medicine.pricePerUnit}</div>
+            <Button>
+              
+            </Button>
           </div>
         ))}
       </div>

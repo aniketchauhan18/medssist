@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     });
 
     await bloodBank.save();
-    await updateUserEntity(userId, "bloodBank");
+    await updateUserEntity(userId, "blood-bank");
 
     return NextResponse.json(
       {

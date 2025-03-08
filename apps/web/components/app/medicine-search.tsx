@@ -57,7 +57,7 @@ export default function MedicineSearch({
           defaultValue={search ?? ""}
         />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 max-h-48 overflow-y-scroll">
         {medicines &&
           medicines.map((medicine) => {
             return <div key={medicine._id} className="px-3 py-2 border rounded-md flex justify-between gap-2">
