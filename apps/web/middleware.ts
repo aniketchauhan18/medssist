@@ -29,5 +29,5 @@ export default async function authMiddleware(request: NextRequest) {
 
 export const config = {
   // add matcher functions here
-  matcher: ["/"],
+  matcher: ["/", "/blood-bank/:userId", "/bloodbank", "/hospital/:userId", "/hospital"],
 };

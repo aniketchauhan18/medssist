@@ -21,8 +21,10 @@ export default function HospitalBloodUnits({
           <div className="flex justify-between items-center">
             <h4 className="font-light text-lg text-red-800">A+</h4>
           </div>
-          <div className="text-2xl font-bold text-red-800">
-            {bloodUnits["A+"]}
+          <div>
+            <div className="text-2xl font-bold text-red-800">
+              {bloodUnits["A+"]}
+            </div>
           </div>
         </div>
       </div>

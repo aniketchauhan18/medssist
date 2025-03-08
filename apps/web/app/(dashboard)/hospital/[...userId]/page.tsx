@@ -107,16 +107,45 @@ export default async function HospitalDashboard({
           </div>
           {/* this number will be dynamic fetched from backend */}
           <div className="text-3xl font-bold text-red-800">
-            {hospital.bloodStock["A+"] +
+            {
+              hospital.bloodStock["A+"] +
               hospital.bloodStock["A-"] +
               hospital.bloodStock["B+"] +
               hospital.bloodStock["B-"] +
               hospital.bloodStock["AB+"] +
               hospital.bloodStock["AB-"] +
               hospital.bloodStock["O+"] +
-              hospital.bloodStock["O-"]}
+              hospital.bloodStock["O-"]
+            }
           </div>
-          <div className="flex justify-end items-end">
+          <div className="flex gap-3 justify-end items-end">
+          <Dialog>
+              <DialogTrigger className="cursor-pointer text-red-800 text-sm underline">
+                Reserve Blood
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Reserve</DialogTitle>
+                  <DialogDescription className="pt-5">
+                    {hospital.bloodStock && (
+                      <HospitalBloodUnits bloodUnits={hospital.bloodStock} />
+                    )}
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter className="sm:justify-start">
+                  <DialogClose asChild>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      className="cursor-pointer"
+                    >
+                      Close
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+            
             <Dialog>
               <DialogTrigger className="cursor-pointer text-red-800 text-sm underline">
                 More Details

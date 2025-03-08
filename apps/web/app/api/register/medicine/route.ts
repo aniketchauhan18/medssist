@@ -77,3 +77,37 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { id } = await req.json();
+
+    const deleteMedicine = await Medicine.deleteOne(
+      {
+        _id: id
+      }
+    )
+
+    if (!deleteMedicine){
+      return NextResponse.json({
+        message: "Medicine not found | deleted"
+      }, {
+        status: 404
+      })
+    }
+
+    return NextResponse.json({
+      message: "Medicine deleted successfully",
+      data: deleteMedicine
+    }, {
+      status: 200
+    })
+  } catch (err) {
+    console.log(err)
+    return NextResponse.json({
+      message: "Internal server error"
+    }, {
+      status: 500
+    })
+  }
+}
