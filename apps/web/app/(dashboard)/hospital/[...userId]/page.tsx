@@ -6,7 +6,7 @@ import {
 import { notFound } from "next/navigation";
 import ConnectWallet from "@/components/app/buttons/connect-wallet";
 import { Ambulance, Bed, ClipboardList, HandHeart } from "lucide-react";
-import { Input } from "@/components/ui/input";
+// import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogClose,
