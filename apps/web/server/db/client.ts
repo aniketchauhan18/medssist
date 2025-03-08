@@ -7,7 +7,7 @@ interface MongooseConn {
   promise: Promise<Mongoose> | null;
 }
 
-const MONGODB_URI = process.env.MONGODB_URI!;
+const MONGODB_URI = process.env.MONGODB_URI! || process.env.MONGODB_URI2!;
 
 if (!MONGODB_URI) {
   throw new Error(

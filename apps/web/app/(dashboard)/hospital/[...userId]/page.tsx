@@ -168,11 +168,11 @@ export default async function HospitalDashboard({
           <p className="text-yellow-800 text-sm">Currently available</p>
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-5 px-10 py-5">
-        <div className="col-span-3 h-96 border p-5  rounded-lg">
+      <div className="grid md:grid-cols-5 gap-5 px-10 py-5">
+        <div className="md:col-span-3 h-96 border p-5  rounded-lg">
           <h3>Emergency Alerts</h3>
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <MedicineSearch medicines={filteredMedicines} />
         </div>
       </div>
