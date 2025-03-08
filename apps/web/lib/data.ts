@@ -1,5 +1,6 @@
 import { connectDB } from "@/server/db/client";
 import Hospital from "@/server/models/hospital.model";
+import BloodBank from "@/server/models/blood-bank.model";
 import Medicine from "@/server/models/medicine.model";
 
 export const getHospitalByUserId = async (userId: string) => {
@@ -9,6 +10,17 @@ export const getHospitalByUserId = async (userId: string) => {
       userId,
     });
     return hospital;
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const getBloodBankByUserId = async (userId: string) => {
+  try {
+    await connectDB();
+    const bloodBank = await BloodBank.findOne({
+      userId,
+    });
+    return bloodBank;
   } catch (err) {
     console.log(err);
   }
@@ -28,7 +40,7 @@ export const getMedicinesByHospitalId = async (hospitalId: string) => {
 
 export const getFilteredMedicines = async (
   query: string,
-  hospitalId: string,
+  hospitalId: string
 ) => {
   try {
     await connectDB();
