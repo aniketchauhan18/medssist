@@ -4,6 +4,8 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { nextCookies } from "better-auth/next-js";
 import { connect } from "@/server/db/client";
 import { checkUserExists } from "@/server/helpers";
+import dotenv from "dotenv";
+dotenv.config();
 
 const client = await connect();
 
