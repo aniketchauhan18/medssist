@@ -22,17 +22,23 @@ import { Button } from "@/components/ui/button";
 import HospitalBloodUnits from "@/components/app/hospital-blood-units";
 import MedicineSearch from "@/components/app/medicine-search";
 
+interface HospitalDashboardParams {
+  params: {
+    userId: string;
+  };
+  searchParams?: Promise<{
+    search?: string;
+  }>;
+}
+
 export default async function HospitalDashboard({
   params,
   searchParams,
-}: {
-  params: { userId: string };
-  searchParams: { search?: string };
-}) {
+}: HospitalDashboardParams) {
   const { userId } = await params;
   const hospital = await getHospitalByUserId(userId);
   const medicines = await getMedicinesByHospitalId(hospital._id);
-  const search = (await searchParams.search) || ".*";
+  const search = (await searchParams)?.search || ".*";
 
   const filteredMedicines =
     (await getFilteredMedicines(await search, hospital._id)) || [];
