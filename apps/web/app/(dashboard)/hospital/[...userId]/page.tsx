@@ -23,9 +23,9 @@ import HospitalBloodUnits from "@/components/app/hospital-blood-units";
 import MedicineSearch from "@/components/app/medicine-search";
 
 interface HospitalDashboardParams {
-  params: {
+  params: Promise<{
     userId: string;
-  };
+  }>;
   searchParams?: Promise<{
     search?: string;
   }>;
