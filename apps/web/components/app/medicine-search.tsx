@@ -56,10 +56,12 @@ export default function MedicineSearch({
           defaultValue={search ?? ""}
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-2">
         {medicines &&
           medicines.map((medicine) => {
-            return <div key={medicine._id}>{medicine.name}</div>;
+            return <div key={medicine._id} className="px-3 py-1 border rounded-md">
+              {medicine.name}
+            </div>;
           })}
       </div>
     </div>
