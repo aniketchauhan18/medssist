@@ -156,10 +156,10 @@ const reserveMedicineController = async (req, res) => {
       
       // Fetch medicine details
       const medicine = await medicineContract.medicines(medicineId);
-      const pricePerUnit = BigInt(medicine.pricePerUnit); // ✅ Convert to BigInt
+      const pricePerUnit = BigInt(medicine.pricePerUnit); //  Convert to BigInt
 
       // Compute total cost
-      const totalCost = pricePerUnit * BigInt(quantity) ; // ✅ Ensure both are BigInt
+      const totalCost = pricePerUnit * BigInt(quantity) ; //  Ensure both are BigInt
 
       // Convert BigInt to string before passing to ethers
       const tx = await medicineContract.reserveMedicine(medicineId, quantity, { value: totalCost.toString() });

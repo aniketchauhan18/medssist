@@ -9,6 +9,22 @@ interface IBloodUnits {
   "O-": number;
 }
 
+const createRequest = async (units: number, bloodGroup : number, ) => {
+  const response = await fetch("https://medssist-server.onrender.com/createRequest", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      units,
+      bloodGroup
+    }),
+  });
+  const data = await response.json();
+  console.log(data);
+}
+
+
 export default function HospitalBloodUnits({
   bloodUnits,
 }: {

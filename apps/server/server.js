@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const {
     activeRequestCountController,
     createRequestController,
@@ -13,10 +14,11 @@ const {
 } = require("./ignition/modules/oracle");
 
 const medicineroutes = require("./ignition/modules/medicine_routes");
-
 const app = express();
 app.use(express.json());
-const port = 3000;
+app.use(cors());
+
+const port = 8080;
 
 app.get("/", (req, res) => {
     res.send("Hello World");
