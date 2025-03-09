@@ -1,3 +1,4 @@
+import Client from "./client"
 import {
   getFilteredMedicines,
   getHospitalByUserId,
@@ -121,7 +122,7 @@ export default async function HospitalDashboard({
           <div className="flex gap-3 justify-end items-end">
           <Dialog>
               <DialogTrigger className="cursor-pointer text-red-800 text-sm underline">
-                Reserve Blood
+                Request Blood
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
@@ -200,9 +201,13 @@ export default async function HospitalDashboard({
       <div className="grid md:grid-cols-5 gap-5 px-10 py-5">
         <div className="md:col-span-3 h-96 border p-5  rounded-lg">
           <h3>Emergency Alerts</h3>
+          <div>
+            <Client />
+          </div>
+
         </div>
         <div className="md:col-span-2">
-          <MedicineSearch medicines={filteredMedicines} />
+          <MedicineSearch />
         </div>
       </div>
     </main>
